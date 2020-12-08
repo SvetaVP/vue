@@ -10,11 +10,7 @@ export default {
   name: "App",
   data() {
     return {
-      productItems: [
-        { id: 1, title: "Product_1" },
-        { id: 2, title: "Product_2" },
-        { id: 3, title: "Product_3" },
-      ],
+      productItems: [],
     };
   },
   mounted() {
