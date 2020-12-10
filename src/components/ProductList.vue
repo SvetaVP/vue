@@ -1,19 +1,27 @@
 <template>
   <div class="holder">
-    <ProductItem
+    <ProductItemPreview
       v-for="item in productItems"
       :key="item.id"
-      v-bind:item="item"
+      :item="item"
     />
   </div>
 </template>
 
 <script>
-import ProductItem from "@/components/ProductItem";
+import ProductItemPreview from "@/components/ProductItemPreview";
 export default {
   props: ["productItems"],
   components: {
-    ProductItem,
+    ProductItemPreview,
   },
 };
 </script>
+
+<style scoped>
+.holder {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 15px;
+}
+</style>
