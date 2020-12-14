@@ -13,20 +13,11 @@ export default {
       productItems: [],
     };
   },
-  mounted() {
-    fetch("https://jsonplaceholder.typicode.com/todos?_limit=10")
-      .then((response) => response.json())
-      .then((json) => {
-        this.productItems = json;
-      });
-
-    // async function getProductItems() {
-    //   const response = await fetch(
-    //     "https://jsonplaceholder.typicode.com/todos"
-    //   );
-    //   let productItems = await response.json();
-    //   return productItems;
-    // }
+  async mounted() {
+    const response = await fetch(
+      "https://jsonplaceholder.typicode.com/todos?_limit=10"
+    );
+    this.productItems = await response.json();
   },
   components: {
     ProductList,
