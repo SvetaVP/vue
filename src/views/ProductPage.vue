@@ -1,14 +1,15 @@
 <template>
   <div class="product-page">
-    <ProductItemView />
+    <Header />
+    {{ $route.params.id }}
   </div>
 </template>
 
 <script>
-import ProductItemView from "@/components/ProductItemView";
+import Header from "@/components/Header";
 export default {
   components: {
-    ProductItemView,
+    Header,
   },
 };
 </script>

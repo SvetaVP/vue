@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="product-list-page">
     <ProductList :productItems="productItems" />
   </div>
 </template>

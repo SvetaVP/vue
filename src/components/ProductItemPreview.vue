@@ -1,8 +1,6 @@
 <template>
   <div class="product-item">
-    <a href="/product-page" v-bind:item="item">
-      {{ item.title }}
-    </a>
+    <router-link :to="`/product/${item.id}`">{{ item.id }}</router-link>
   </div>
 </template>
 
