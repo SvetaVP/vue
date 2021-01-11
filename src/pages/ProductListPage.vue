@@ -12,7 +12,7 @@ export default {
   computed: mapGetters(["products"]),
   methods: mapActions(["fetchProducts"]),
   async mounted() {
-    this.fetchProducts();
+    this.fetchProducts(9);
   },
   components: {
     ProductList,

@@ -1,8 +1,8 @@
 export default {
   actions: {
-    async fetchProducts(ctx) {
+    async fetchProducts(ctx, limit = 10) {
       const response = await fetch(
-        "https://jsonplaceholder.typicode.com/todos?_limit=10"
+        "https://jsonplaceholder.typicode.com/todos?_limit=" + limit
       );
       const productItems = await response.json();
       ctx.commit("updatedProducts", productItems);
