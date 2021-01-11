@@ -1,17 +1,13 @@
 <template>
   <div class="holder">
-    <ProductItemPreview
-      v-for="item in productItems"
-      :key="item.id"
-      :item="item"
-    />
+    <ProductItemPreview v-for="item in products" :key="item.id" :item="item" />
   </div>
 </template>
 
 <script>
 import ProductItemPreview from "@/components/ProductItemPreview";
 export default {
-  props: ["productItems"],
+  props: ["products"],
   components: {
     ProductItemPreview,
   },

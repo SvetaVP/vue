@@ -1,23 +1,18 @@
 <template>
   <div class="product-list-page">
-    <ProductList :productItems="productItems" />
+    <ProductList :products="products" />
   </div>
 </template>
 
 <script>
 import ProductList from "@/components/ProductList";
+import { mapGetters, mapActions } from "vuex";
 export default {
   name: "App",
-  data() {
-    return {
-      productItems: [],
-    };
-  },
+  computed: mapGetters(["products"]),
+  methods: mapActions(["fetchProducts"]),
   async mounted() {
-    const response = await fetch(
-      "https://jsonplaceholder.typicode.com/todos?_limit=10"
-    );
-    this.productItems = await response.json();
+    this.fetchProducts();
   },
   components: {
     ProductList,
