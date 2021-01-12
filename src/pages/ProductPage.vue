@@ -7,20 +7,15 @@
 
 <script>
 import Header from "@/components/Header";
+import { mapGetters, mapActions } from "vuex";
 export default {
   components: {
     Header,
   },
-  data() {
-    return {
-      product: {},
-    };
-  },
+  computed: mapGetters(["product"]),
+  methods: mapActions(["fetchProduct"]),
   async mounted() {
-    const response = await fetch(
-      "https://jsonplaceholder.typicode.com/todos/" + this.$route.params.id
-    );
-    this.product = await response.json();
+    this.fetchProduct(this.$route.params.id);
   },
 };
 </script>
