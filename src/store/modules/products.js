@@ -2,7 +2,7 @@ export default {
   actions: {
     async fetchProducts(ctx, limit = 10) {
       const response = await fetch(
-        "https://jsonplaceholder.typicode.com/todos?_limit=" + limit
+        process.env.VUE_APP_DB_URL + "products?_limit=" + limit
       );
       const productItems = await response.json();
       ctx.commit("updatedProducts", productItems);
@@ -10,7 +10,7 @@ export default {
 
     async fetchProduct(ctx, id) {
       const response = await fetch(
-        "https://jsonplaceholder.typicode.com/todos/" + id
+        process.env.VUE_APP_DB_URL + "products/" + id
       );
       const product = await response.json();
       ctx.commit("updatedProduct", product);
