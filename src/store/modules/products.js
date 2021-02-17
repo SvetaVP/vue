@@ -1,17 +1,15 @@
-import ProductsApi from "../../../api/prosucts-api";
+import ProductsApi from "../../api/prosucts-api";
 
 export default {
   actions: {
-    async getAllProducts(ctx) {
-      await ProductsApi.fetchProducts(() => {
-        ctx.commit("updatedProducts", productItems);
-      }, 16);
+    async fetchProducts(ctx) {
+      const productItems = await ProductsApi.fetchProducts();
+      ctx.commit("updatedProducts", productItems);
     },
 
-    async getProduct(ctx) {
-      await ProductsApi.fetchProduct(() => {
-        ctx.commit("updatedProduct", product);
-      });
+    async fetchProduct(ctx) {
+      const product = await ProductsApi.fetchProduct();
+      ctx.commit("updatedProduct", product);
     },
   },
 
