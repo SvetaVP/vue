@@ -1,19 +1,17 @@
+import ProductsApi from "../../../api/prosucts-api";
+
 export default {
   actions: {
-    async fetchProducts(ctx, limit = 10) {
-      const response = await fetch(
-        `${process.env.VUE_APP_BASE_URL}products?_limit=${limit}`
-      );
-      const productItems = await response.json();
-      ctx.commit("updatedProducts", productItems);
+    async getAllProducts(ctx) {
+      await ProductsApi.fetchProducts(() => {
+        ctx.commit("updatedProducts", productItems);
+      }, 16);
     },
 
-    async fetchProduct(ctx, id) {
-      const response = await fetch(
-        `${process.env.VUE_APP_BASE_URL}products/${id}`
-      );
-      const product = await response.json();
-      ctx.commit("updatedProduct", product);
+    async getProduct(ctx) {
+      await ProductsApi.fetchProduct(() => {
+        ctx.commit("updatedProduct", product);
+      });
     },
   },
 
