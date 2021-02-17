@@ -7,8 +7,8 @@ export default {
       ctx.commit("updatedProducts", productItems);
     },
 
-    async fetchProduct(ctx) {
-      const product = await ProductsApi.fetchProduct();
+    async fetchProduct(ctx, id) {
+      const product = await ProductsApi.fetchProduct(id);
       ctx.commit("updatedProduct", product);
     },
   },

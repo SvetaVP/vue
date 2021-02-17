@@ -14,10 +14,19 @@ export default {
 };
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .holder {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 15px;
+  font-size: 0; /*disable white space between inline block element */
+
+  &:before {
+    content: "";
+    width: calc(var(--s) / 2 + var(--m));
+    float: left;
+    height: 100%;
+    shape-outside: repeating-linear-gradient(
+      transparent 0 calc(var(--r) - 3px),
+      #fff 0 var(--r)
+    );
+  }
 }
 </style>
