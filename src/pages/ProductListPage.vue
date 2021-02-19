@@ -1,7 +1,14 @@
 <template>
-  <div class="product-list-page">
+  <v-main class="product-list-page">
+    <div class="add-product">
+      If you want to add a product
+      <router-link to="/add-product">click heare</router-link>
+    </div>
+
+    <v-divider></v-divider>
+
     <ProductList :products="products" />
-  </div>
+  </v-main>
 </template>
 
 <script>
@@ -21,10 +28,8 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.product-list-page {
-  display: flex;
-  --s: 100px; /* size  */
-  --m: 4px; /* space */
-  --r: calc(var(--s) * 3 * 1.1547 / 2 + 4 * var(--m) - 2px);
+.add-product {
+  text-align: center;
+  padding: 30px 0;
 }
 </style>
