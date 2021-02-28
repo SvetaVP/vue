@@ -49,7 +49,7 @@ export default {
     return {
       title: "",
       type: "",
-      productImg: {},
+      productImg: "",
       price: null,
       description: "",
     };
