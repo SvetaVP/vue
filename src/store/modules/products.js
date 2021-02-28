@@ -11,6 +11,11 @@ export default {
       const product = await ProductsApi.fetchProduct(id);
       ctx.commit("updatedProduct", product);
     },
+
+    async addNewProduct(ctx, data) {
+      const newProduct = await ProductsApi.addNewProduct(data);
+      ctx.commit("addNewProduct", newProduct);
+    },
   },
 
   mutations: {
@@ -20,6 +25,10 @@ export default {
 
     updatedProduct(state, product) {
       state.product = product;
+    },
+
+    addNewProduct(state, newProduct) {
+      state.productItems.push(newProduct);
     },
   },
 

@@ -43,8 +43,7 @@
 </template>
 
 <script>
-import axios from "axios";
-
+import { mapActions } from "vuex";
 export default {
   data() {
     return {
@@ -56,6 +55,7 @@ export default {
     };
   },
   methods: {
+    ...mapActions(["addNewProduct"]),
     onSubmit() {
       if (this.title.length) {
         const newProduct = {
@@ -67,7 +67,7 @@ export default {
           price: this.price,
         };
 
-        axios.post(`${process.env.VUE_APP_BASE_URL}products`, newProduct);
+        this.addNewProduct(newProduct);
       }
     },
   },
