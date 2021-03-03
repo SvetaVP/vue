@@ -12,6 +12,10 @@
           truncate-length="30"
           prepend-icon="mdi-camera"
           v-model="productImg"
+          type="file"
+          id="primaryImage"
+          ref="primaryImage"
+          v-on:change="handleFileUpload()"
         ></v-file-input>
 
         <v-text-field
@@ -49,7 +53,7 @@ export default {
     return {
       title: "",
       type: "",
-      productImg: "",
+      productImg: {},
       price: null,
       description: "",
     };
@@ -69,6 +73,10 @@ export default {
 
         this.addNewProduct(newProduct);
       }
+    },
+
+    handleFileUpload() {
+      this.primaryImage = this.$refs.file.files[0];
     },
   },
 };

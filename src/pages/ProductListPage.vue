@@ -13,9 +13,10 @@
 
 <script>
 import ProductList from "@/components/ProductList";
-import { mapActions } from "vuex";
+import { mapActions, mapGetters } from "vuex";
 export default {
   name: "App",
+  computed: mapGetters(["products"]),
   methods: mapActions(["fetchProducts"]),
   async mounted() {
     this.fetchProducts();

@@ -1,6 +1,8 @@
 <template>
   <div class="product-item">
-    <router-link :to="`/product/${item.id}`">{{ item.id }}</router-link>
+    <router-link :to="`/product/${item.id}`"
+      ><span>{{ item.id }}</span></router-link
+    >
   </div>
 </template>
 
@@ -37,9 +39,16 @@ export default {
     align-items: center;
     color: #fff;
     text-decoration: none;
+    padding: 10px;
 
     &:hover {
       text-decoration: underline;
+    }
+
+    span {
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
     }
   }
 }

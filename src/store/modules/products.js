@@ -3,8 +3,8 @@ import productsApi from "../../api/prosucts-api";
 export default {
   actions: {
     async fetchProducts(ctx) {
-      const productItems = await productsApi.fetchProducts();
-      ctx.commit("updatedProducts", productItems);
+      const products = await productsApi.fetchProducts();
+      ctx.commit("updatedProducts", products);
     },
 
     async fetchProduct(ctx, id) {
@@ -19,8 +19,8 @@ export default {
   },
 
   mutations: {
-    updatedProducts(state, productItems) {
-      state.productItems = productItems;
+    updatedProducts(state, products) {
+      state.products = products;
     },
 
     updatedProduct(state, product) {
@@ -28,18 +28,18 @@ export default {
     },
 
     addNewProduct(state, newProduct) {
-      state.productItems.push(newProduct);
+      state.products.push(newProduct);
     },
   },
 
   state: {
-    productItems: [],
+    products: [],
     product: [],
   },
 
   getters: {
     products(state) {
-      return state.productItems;
+      return state.products;
     },
 
     product(state) {
