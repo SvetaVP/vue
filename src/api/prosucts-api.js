@@ -18,10 +18,10 @@ export default {
       cache: "no-cache",
       credentials: "same-origin",
       headers: {
-        "Content-Type": "application/json",
+        "Content-Type": "application/json; charset=utf-8",
       },
       redirect: "follow",
-      referrerPolicy: "no-referrer",
+      referrerPolicy: "strict-origin-when-cross-origin",
       body: JSON.stringify(data),
     });
     return await response.json();

@@ -3,20 +3,21 @@
     <v-card ref="form">
       <v-card-text>
         <p class="pt-5 pb-5">Please fill in the fields below</p>
-        <v-text-field label="Title" clearable v-model="title"></v-text-field>
-        <v-text-field label="Type" clearable v-model="type"></v-text-field>
+        <v-text-field
+          label="Product name"
+          clearable
+          v-model="name"
+        ></v-text-field>
 
-        <v-file-input
-          label="Product picture"
-          small-chips
-          truncate-length="30"
-          prepend-icon="mdi-camera"
-          v-model="productImg"
-          type="file"
-          id="primaryImage"
-          ref="primaryImage"
-          v-on:change="handleFileUpload()"
-        ></v-file-input>
+        <label
+          >File
+          <input
+            type="file"
+            id="primaryImage"
+            ref="primaryImage"
+            v-on:change="handleFileUpload()"
+          />
+        </label>
 
         <v-text-field
           label="Price"
@@ -25,12 +26,6 @@
           type="number"
           v-model="price"
         ></v-text-field>
-
-        <v-textarea
-          label="Description"
-          clearable
-          v-model="description"
-        ></v-textarea>
 
         <v-btn
           type="submit"
@@ -51,32 +46,26 @@ import { mapActions } from "vuex";
 export default {
   data() {
     return {
-      title: "",
-      type: "",
-      productImg: {},
+      name: "",
+      primaryImage: "",
       price: null,
-      description: "",
     };
   },
   methods: {
     ...mapActions(["addNewProduct"]),
     onSubmit() {
-      if (this.title.length) {
+      if (this.name.length) {
         const newProduct = {
-          id: Date.now(),
-          title: this.title,
-          type: this.type,
-          description: this.description,
-          productImg: this.productImg,
+          name: this.name,
+          primaryImage: this.primaryImage,
           price: this.price,
         };
 
         this.addNewProduct(newProduct);
       }
     },
-
     handleFileUpload() {
-      this.primaryImage = this.$refs.file.files[0];
+      this.primaryImage = this.$refs.primaryImage.files[0];
     },
   },
 };
